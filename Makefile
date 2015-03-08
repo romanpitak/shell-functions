@@ -23,7 +23,8 @@ all: $(target)
 $(target): $(parts)
 	@printf '#!%s\n\n' $(interpreter) > $@
 	@printf '%s\n\n' 'set -eu' >> $@
-	cat $(parts) | bin/shmd2sh.awk >> $@
+	cat $(parts) | \
+		sed -n -e 's/^    //p' >> $@
 	chmod $(permissions) $@
 
 test: tests.sh
