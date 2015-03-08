@@ -11,7 +11,7 @@ check if command is present, if not try to install it with installer if set
                 pr_message_failed
                 exit 1
             else
-                pr_message_installing
+                pr_message 'installing...'
                 $2
                 pr_check_command "$1"
             fi
