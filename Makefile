@@ -33,3 +33,6 @@ test: tests.sh
 tests.sh: Makefile $(name) $(tests)
 	cat $(target) $(tests) > $@
 	chmod 700 $@
+
+docs: $(parts)
+	$(foreach sf, $(parts), docco $(sf);)
